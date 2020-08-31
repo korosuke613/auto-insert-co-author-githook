@@ -1,0 +1,5 @@
+-   id: insert-co-author
+    name: 'insert-co-author'
+    entry: insert-co-author.sh
+    language: 'script'
+    description: "Adds the previous author to the commit message as Co-authored-by on the git rebase squash."
