@@ -1,9 +1,11 @@
 # auto-insert-co-author-githook
-A git hook that adds the previous author to the commit message as "co-authored" on the git rebase squash.
+A git hook that adds the previous author to the commit message as "Co-authored-by" on the git rebase squash.
 
 ## setup
+You need setup in the project root directory.
+
 ### install lefthook
-See [this page](https://github.com/Arkweid/lefthook/blob/master/docs/other.md).
+See [this page](https://github.com/Arkweid/lefthook/blob/master/docs/full_guide.md#installation).
 
 ### enable lefthook
 Execute below command, and created to `lefthook.yml`.
@@ -11,9 +13,13 @@ Execute below command, and created to `lefthook.yml`.
 lefthook install
 ```
 
-
 ### add setting
-Add below setting to `lefthook.yml`
+Execute below command.
+```shell script
+lefthook add prepare-commit-msg
+```
+
+And add below setting to `lefthook.yml`.
 
 ```yaml
 prepare-commit-msg:
