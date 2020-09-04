@@ -15,5 +15,4 @@ commit_hashes=(`grep -E "squash\s+" $rebase_targets | awk '{print $2}'`)
 all_commit_hash=${commit_hashes[@]}
 commit_message_file=.git/COMMIT_EDITMSG
 
-git log --pretty=format:"Co-authored-by: %cn <%ae>" $all_commit_hash  | sort -u >> $commit_message_file
-
+git show $all_commit_hash --pretty=format:"Co-authored-by: %cn <%ae>" --quiet  | sort -u >> $commit_message_file
