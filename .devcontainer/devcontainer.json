@@ -1,0 +1,6 @@
+{
+    "name": "auto-insert-co-author-githook",
+    "extensions": [
+        "formulahendry.terminal",
+    ],
+}
