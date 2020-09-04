@@ -1,0 +1,7 @@
+repos:
+- repo: local
+  hooks:
+    - id: insert-co-author
+      name: insert-co-author
+      entry: ./insert-co-author.sh
+      language: script
