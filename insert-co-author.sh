@@ -16,4 +16,3 @@ all_commit_hash=${commit_hashes[@]}
 commit_message_file=.git/COMMIT_EDITMSG
 
 git log --pretty=format:"Co-authored-by: %cn <%ae>" $all_commit_hash  | sort -u >> $commit_message_file
-

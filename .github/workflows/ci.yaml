@@ -1,0 +1,45 @@
+---
+name: CI
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+      - run: pip install pre-commit
+      - run: pre-commit install --hook-type prepare-commit-msg
+      - name: Extract branch name
+        shell: bash
+        run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+        id: extract_branch
+      - name: Test
+        run: |
+          set -euxo pipefail
+          git switch -c test
+
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
+          echo aaa > test.txt
+          git add -A && git commit -m "iam A"
+
+          git config --global user.email "you2@example.com"
+          git config --global user.name "Your Name2"
+          echo bbb >> test.txt
+          git add -A && git commit -m "iam B"
+
+          git config --global user.email "you3@example.com"
+          git config --global user.name "Your Name3"
+          echo ccc >> test.txt
+          git add -A && git commit -m "iam C"
+
+          export GIT_MERGE_AUTOEDIT=no
+          EDITOR='sed -i "2,\$s/^pick/squash/"' git rebase -i ${{ steps.extract_branch.outputs.branch }}
+      - name: Verify
+        run: |
+          git log -1 --pretty=format:"%B" >> actual.txt
+          diff actual.txt .github/workflows/expect.txt
