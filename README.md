@@ -1,6 +1,11 @@
 # auto-insert-co-author-githook
 A git hook that adds the previous author to the commit message as "Co-authored-by" on the git rebase squash.
 
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/korosuke613/auto-insert-co-author-githook)](https://github.com/korosuke613/auto-insert-co-author-githook/releases/latest)
+[![GitHub Actions CI](https://github.com/korosuke613/auto-insert-co-author-githook/workflows/CI/badge.svg)](https://github.com/korosuke613/auto-insert-co-author-githook/actions?query=workflow%3ACI)
+
+![demo](./demo.gif)
+
 ## setup
 You need setup in the project root directory.
 
