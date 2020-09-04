@@ -12,7 +12,7 @@ See [this page](https://pre-commit.com/#install).
 Create `.pre-commit-config.yaml`, and write below setting.
 ```yaml
 - repo: git://github.com/korosuke613/auto-insert-co-author-githook
-  rev: master
+  rev: v1.0.0
   hooks:
     - id: insert-co-author
       stages: [prepare-commit-msg]
