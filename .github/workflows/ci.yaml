@@ -10,7 +10,7 @@ jobs:
       - name: Set up Python 3.8
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.14
       - run: pip install pre-commit
       - run: pre-commit install --hook-type prepare-commit-msg
       - name: Extract branch name
